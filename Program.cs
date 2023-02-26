@@ -1,5 +1,6 @@
 using food_delivery_app;
 using food_delivery_app.Models;
+using food_delivery_app.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Connect DB
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

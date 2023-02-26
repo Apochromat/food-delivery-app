@@ -1,0 +1,58 @@
+﻿@using food_delivery_app.Models.Enums
+@model food_delivery_app.Models.ViewModels.RegisterViewModel
+
+<div class="card p-0 mx-auto my-4 container bold bg-dark border-0" id="register-container">
+    <div class="card-body">
+        <div class="row">
+            <h3>Регистрация нового пользователя</h3>
+            <form asp-action="Register" asp-controller="Account" method="Post">
+                <div class="col-12 mb-3">
+                    <label class="form-label" asp-for="Name"></label>
+                    <input type="text" class="form-control my-2" asp-for="Name" placeholder="Иванов Иван Иванович">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="col-12 mb-3">
+                    <label class="form-label" asp-for="Phone"></label>
+                    <input type="text" class="form-control my-2" asp-for="Phone" placeholder="+7 (xxx) xxx-xx-xx">
+                    <span class="text-danger" asp-validation-for="Phone"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-3">
+                        <label class="form-label" asp-for="Gender"></label>
+                        <select class="form-select my-2" asp-for="Gender">
+                            <option value=@Gender.Male>Мужской</option>
+                            <option value=@Gender.Female>Женский</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="Gender"></span>
+                    </div>
+                    <div class="col-md-6 col-12 mb-3">
+                        <label class="form-label" asp-for="BirthDate"></label>
+                        <input type="date" class="form-control my-2" asp-for="BirthDate">
+                        <span class="text-danger" asp-validation-for="BirthDate"></span>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <label asp-for="Address" class="form-label"></label>
+                    <input type="text" class="form-control my-2" asp-for="Address" placeholder="ул.Пушкина, д.1">
+                    <span class="text-danger" asp-validation-for="Address"></span>
+                </div>
+                <div class="col-12 mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input type="email" class="form-control my-2" asp-for="Email" placeholder="user@example.com">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="col-12 mb-3">
+                    <label class="form-label" asp-for="Password"></label>
+                    <input type="password" class="form-control my-2" asp-for="Password" placeholder="**************">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div class="col-12 mb-3">
+                    <label class="form-label" asp-for="PasswordConfirm"></label>
+                    <input type="password" class="form-control my-2" asp-for="PasswordConfirm" placeholder="**************">
+                    <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>
