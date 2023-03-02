@@ -6,7 +6,18 @@ footer {
     background-color:#151517;
 }
 
-
 .container {
     color: #ffffff;
+}
+
+.card {
+    background-color: #212529;
+}
+
+.card-header {
+    background-color: #1d2023;
+}
+
+.card-footer {
+    background-color: #1d2023;
 }

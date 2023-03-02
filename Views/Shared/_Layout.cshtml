@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - food_delivery_app</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="~/lib/star-rating/star-rating.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="~/food_delivery_app.styles.css" asp-append-version="true"/>
 </head>
 <body>
@@ -20,10 +23,7 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Menu">Menu</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav flex-grow-1 justify-content-end">
@@ -58,11 +58,14 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2023 - food_delivery_app - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2023 - food_delivery_app
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d98105579a.js" crossorigin="anonymous"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/lib/star-rating/star-rating.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>

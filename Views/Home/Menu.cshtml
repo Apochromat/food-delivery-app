@@ -1,0 +1,69 @@
+﻿@model food_delivery_app.Models.ViewModels.MenuViewModel
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 mx-5 mb-4 container mx-auto shadow rounded pb-2">
+    <div class="row row-cols-xl-4 row-cols-md-2 row-cols-1 w-100 p-2 mx-auto rounded">
+        <div class="col px-2 my-1">
+            <select class="selectpicker w-100" multiple>
+                <option value="Wok">WOK</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Soup">Soup</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Drink">Drink</option>
+            </select>
+        </div>
+        <div class="col my-auto px-2  my-1">
+            <select class="selectpicker w-100">
+                <option value="NameAsc">По возрастанию алфавита</option>
+                <option value="NameDesc">По убыванию алфавита</option>
+                <option value="PriceAsc">Сначала недорогие</option>
+                <option value="PriceDesc">Сначала дорогие</option>
+                <option value="RatingAsc">Сначала с низкой оценкой</option>
+                <option value="RatingDesc">Сначала с высокой оценкой</option>
+            </select>
+        </div>
+        <div class="col my-auto px-2  my-1">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label" for="searchVegeterianCheck">Только вегетерианские</label>
+            </div>
+        </div>
+        <div class="col my-auto px-2 my-1">
+            <button type="submit" class="btn btn-primary end-0 w-100 float-end searchSubmit">Применить</button>
+        </div>
+    </div>
+    @foreach (var card in @Model.Dishes) {
+        <div class="col py-2">
+            <div class="card rounded-1 dishItem h-100">
+                <div class="position-relative">
+                    <img src="@card.Image" class="d-block rounded-top card-img-top imageDiv ibg" alt="...">
+                    <i class="fa-solid fa-leaf fs-2 border-2 border-success border text-success bg-white p-1 m-2 rounded-3 @(card.Vegetarian ? "" : "d-none") position-absolute bottom-0 end-0"></i>
+                </div>
+                <div class="card-header">
+                    <h3 class="card-title m-0"><a href="" class="title text-decoration-none">@card.Name</a></h3>
+                </div>
+                <div class="col-12 card-body">
+                    <div class="category mb-1">@card.Category</div>
+                    <input name="rating-output" class="rating rating-loading w-100" value="1.5" data-min="0" data-max="10"
+                           data-step="1" data-readonly="false">
+                    <p class="desc .text-primary">@card.Description</p>
+                </div>
+                <div class="card-footer cardButtons justify-content-between">
+                    <label class="cost col-xl-6 col-12 py-2 pb-xl-0 text-xl-start text-center my-auto">@card.Price</label>
+                    <div class="btn-group col-xl-6 col-12 float-end" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-primary orderButton">В корзину</button>
+                    </div>
+                    <div class="btn-group col-xl-6 col-12 float-end orderDecreaser d-none" role="group"
+                         aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-primary decrease"><i class="fa-solid fa-minus"></i></button>
+                        <button type="button" class="btn btn-outline-primary text-bg-secondary disabled orderLabel">0</button>
+                        <button type="button" class="btn btn-primary increase"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
